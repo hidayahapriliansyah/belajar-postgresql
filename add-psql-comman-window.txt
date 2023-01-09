@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/30401460/postgres-psql-not-recognized-as-an-internal-or-external-command
+
+command :
+  psql -U postgres -h localhost
