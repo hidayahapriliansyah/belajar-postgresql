@@ -1,3 +1,8 @@
+Syntax :
+CREATE DATABASE nama
+
+======
+
 sama sih kayak syntax SQL.
 
 yang bedanya itu pas SHOW DATABASE cukup pakai \l. beksles el.

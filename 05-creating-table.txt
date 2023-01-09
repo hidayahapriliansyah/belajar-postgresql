@@ -1,0 +1,12 @@
+kita coba bikin table person 
+
+CREATE TABLE person (
+  id INT, 
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  date_birth DATE
+);
+
+nah buat show tables nya cukup pakai \d
+buat desc table tulis aja \d nama-table
+buat lebih detail \d+ nama_table

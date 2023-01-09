@@ -1,0 +1,11 @@
+ada 2 cara :
+
+1. Pas masuk ke psql nya coy ...
+  psql -h localhost -U postgres -d NAMA-DATABASE
+  (untuk mengecek list command psql bisa tulis: psql --help)
+
+2. Ganti database pas udah masuk psqlnya ...
+  tulis aja:
+    \c NAMA-DATABASE
+  
+

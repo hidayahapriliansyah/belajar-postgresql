@@ -1,0 +1,7 @@
+di bagian ini mah baru pengenalan data type cuuy ...
+
+CREATE TABLE name_table (
+  id int,
+)
+
+intina tetep syntax sql :love
