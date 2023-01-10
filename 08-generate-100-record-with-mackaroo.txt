@@ -1,0 +1,10 @@
+pergi ke: https://www.mockaroo.com/
+
+intina bikin command SQL yang isinya CREATE TABLE sama 
+INSERT INTO 100x manttapppp
+
+di postgresql untuk mengeksekusi command dari sebuah file bisa ketik \i DIRECTORY-FILE
+
+MANTAPPP 
+
+jalannnnn 

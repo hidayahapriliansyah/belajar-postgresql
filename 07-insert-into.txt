@@ -12,3 +12,13 @@ sytax :
   INSERT 0 1
 
 lumayan ..
+nya kan mirip 
+
+pas masukin value juga bisa disertai jenis type datanya. Contoh :
+  test=# INSERT INTO person (first_name, last_name, gender, date_of_birth, email) VALUES
+  test-# (varchar 'Tika', varchar 'Yulia Afifah', varchar 'Female', date '2001-09-23', varchar 'tikayuliaafifah@gmail.com');
+  INSERT 0 1
+
+  test=# INSERT INTO person (first_name, last_name, gender, date_of_birth, email) VALUES
+  test-# (varchar(50) 'Hidayah', varchar(20) 'Apriliansyah', varchar(7) 'Male', date '2001-04-25', varchar(50) 'hidayahapriliansyah@gmail.com');
+  INSERT 0 1
