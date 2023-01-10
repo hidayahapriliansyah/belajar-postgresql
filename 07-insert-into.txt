@@ -1,0 +1,14 @@
+untuk show hanya table gunakan syntax :
+  \d
+
+sytax :
+  test=# INSERT INTO person (first_name, last_name, gender, email) VALUES
+  test-# ('Adi', 'Firmansyah', 'male', 'adi@gmail.com'),
+  test-# ('Hidayah', 'Apriliansyah', 'male', '');
+  INSERT 0 2
+
+  test=# INSERT INTO person (first_name, last_name, gender, email) VALUES
+  test-# ('Tika', 'Yulia Afifah', 'female', 'tikayuliaafifah@gmail.com');
+  INSERT 0 1
+
+lumayan ..
