@@ -1,0 +1,10 @@
+lumayan rada beda dikit masalah type data sama 
+nyimpen constraint na siga primary key kitu.
+Contoh syntax :
+  test=# CREATE TABLE person (
+  test(# id BIGSERIAL NOT NULL PRIMARY KEY,
+  test(# first_name VARCHAR(50) NOT NULL,
+  test(# last_name VARCHAR(50),
+  test(# gender VARCHAR(7),
+  test(# email VARCHAR(150)
+  test(# );
