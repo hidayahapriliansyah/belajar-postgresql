@@ -1,0 +1,4 @@
+ORDER BY nya sama aja si kayak mysql ada ASC DESC
+terus bisa order by multi column juga
+
+ SELECT * FROM person ORDER BY first_name DESC;
