@@ -1,0 +1,13 @@
+alias itu berfungsi mengoveride nama column di tampilan.
+kalau untuk pemakaian di aggregate function kayak ini :
+    test=# SELECT *, ROUND(price * .10, 2) AS discount, ROUND(price - (discount), 2) AS total  FROM car;
+    ERROR:  column "discount" does not exist
+    LINE 1: ...ROUND(price * .10, 2) AS discount, ROUND(price - (discount),...
+
+malah error karena si aggregate function gak nemu column discount, padahal udah kita alias, nah,
+untuk kasus ini gak kerja karena ya emang gak ada column yang namanya discount.
+discount itu nama column yang dialiaskan untuk tampilan harus paham konsep ini di.
+
+padahal saya juga ngarepnya bisa dipake gitu loh. tapi gak apa apa. ternyata emang perilakunya kayak gitu.
+
+tapi pas join eta asa bisa ahh.... ke mari kita pelajari lagi ...
