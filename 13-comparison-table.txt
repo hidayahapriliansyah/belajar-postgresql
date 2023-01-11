@@ -6,3 +6,20 @@ perbandingan kayak
 BETWEEN juga
 
 ini sama kayak sql biasa lah ...
+
+oh iya ..
+kalau di postgres kita bisa tahu hasilnya true or false 
+dari pengembalian nilai seperti ini yaitu dengan hasil t atau f
+
+test=# SELECT 1 < 2 AND 2 = 1 + 1 AND 3 <> 2;
+
+ ?column?
+----------
+ t
+(1 row)
+
+test=# SELECT 1 = 2;
+ ?column?
+----------
+ f
+(1 row)
