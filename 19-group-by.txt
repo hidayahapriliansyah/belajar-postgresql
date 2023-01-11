@@ -1,0 +1,4 @@
+ini buat nge group.
+Kalau menurut saya mah siga DISTINCT sih ...
+contoh syntax :
+    SELECT country_of_birth, COUNT(*) AS person FROM person GROUP BY country_of_birth ORDER BY person DESC;
