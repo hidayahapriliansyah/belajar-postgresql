@@ -1,0 +1,3 @@
+buat ngebuletin. Angka dibelakang koma desimal nya bisa diatur setelah proses pengolahan aritmatika nya.
+
+test=# SELECT *, ROUND(price * .10, 2) AS discount, ROUND(price - price*10/100, 2) AS total  FROM car;
