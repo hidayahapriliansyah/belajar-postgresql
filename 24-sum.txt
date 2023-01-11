@@ -1,0 +1,6 @@
+contoh syntax :
+    test=# SELECT SUM(price) AS total FROM car;
+
+    SELECT make, SUM(price) AS total FROM car GROUP BY make;
+
+    SELECT make, SUM(price) AS total FROM car GROUP BY make ORDER BY total DESC LIMIT 5;
