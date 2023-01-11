@@ -1,0 +1,22 @@
+support semua aritmatik kayak dibahasa pemrograman pada umumnya
+ada +,-,*,/,^,%
+
+contoh syntax :
+  test=# SELECT 2 + 3 AS "2+3";
+  2+3
+  -----
+    5
+  (1 row)
+
+KELA ...
+  Hasil
+    test=# SELECT DISTINCT make FROM car LIMIT 5;
+    sama dengan 
+    SELECT make FROM car GROUP BY make LIMIT 5;
+
+    ini
+    SELECT DISTINCT make, model FROM car ORDER BY make LIMIT 20;
+    sama dengan ini
+    SELECT make, model FROM car GROUP BY make, model ORDER BY make LIMIT 20;
+
+    cuma bedanya tetep kalau pake aggregate function harus pake GROUP BY
