@@ -1,0 +1,44 @@
+masih sama kayak SQL biasa :
+Limit buat ngebates berapa banyak record yang mau dimunculin,
+offset nyatain mau dari mana data yang dimunculin.
+
+SELECT * FROM person LIMIT 5;
+
+Limit tanpa offset akan mengambil data 5 yang pertama.
+kalau offset nya gak ditulis itu sama aja dengan nulis 
+offset 0 alias default offset itu 0.
+
+syntax :
+  SELECT * FROM person LIMIT 5
+  dengan
+  SELECT * FROM person LIMIT 5 OFFSET 0
+  hasilnya sama.
+
+
+OFFSET itu buat ngelewatin data. Dia kayak ngomong 
+'Mau ngambil mulai dari mana?', atau 'Mau lewatin berapa data?'
+
+  SELECT * FROM person OFFSET 992;
+  artinuya pilih semua colum dari table person dengan melewati 992 data
+
+
+FETCT FIRST ... ROW ONLY
+ fetch first row only ini baru kenal nih.
+ Ini sama kayak LIMIT, cuma ini versi standarnya.
+ LIMIT itu ternyata gak disupport sama semua SQL,
+ kalo MySQL support. cek deh :
+ https://www.w3schools.com/sql/sql_top.asp
+
+syntax :
+  SELECT * FROM person FETCH FIRST 3 ROW ONLY;
+  hasilnya sama dengan 
+  SELECT * FROM person LIMIT 3;
+
+  SELECT * FROM person FETCH FIRST 3 ROW ONLY OFFSET 5;
+  sama hasilnya dengan
+  SELECT * FROM person OFFSET 5 LIMIT 3;
+
+
+Perbedaan antara LIMIT dan FETCH FIRST;
+  While fetch and limit have the same functionality, the fetch clause is an SQL standard while limit is not. Fetch was included in the SQL standard in 2008 which makes it the go to option if you want your query to be portable across several RDBMS.
+
