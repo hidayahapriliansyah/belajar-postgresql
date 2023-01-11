@@ -1,0 +1,16 @@
+syntax :
+  test=# SELECT * FROM person WHERE country_of_birth = 'Indonesia' OR
+  test-# country_of_birth = 'Malaysia'
+  test-# OR country_of_birth = 'China';
+
+itu contoh kalau mau filter data pake Where clause + or.
+nah si or nya itu bisa diganti pakai IN jadi kayak gini :
+
+syntax :
+  test=# SELECT * FROM person WHERE country_of_birth IN  ('Indonesia', 'Malaysia', 'China');
+
+hasilnya sama.
+si IN itu ngambil array dari nilai yang ada dalam kurung,
+terus mengembalikan query yang pas dengan value itu.
+
+
