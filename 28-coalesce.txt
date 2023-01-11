@@ -1,0 +1,31 @@
+coalesce artinya bersatu hahahah ..
+
+ini itu kerjanya kayak null coalescing di js.
+yang pake operator or || itu loh.
+yang mana kalau nilai true udah ketemu maka akan dipakai nilai itu.
+
+kan kalau and && mah kalau udah false baru  stop. dia akan terus nyari false, kalau ketemu falsenya
+maka dia bakal ngejalanin/ milih false itu. Kalau gak ketemu false nya, maka dia
+bakal ngejalanin true terakhir yang ditemuin.
+
+kalau or || mah kalau udah true baru stop. Dia bakal nyari terus nilai true,
+kalau ketemu true, ini ngejalanin true pertama yang ditemuin. kalau gak ketemu ketemu true nya
+dia bakal milih false terakhir yang ditemuin.
+
+SI COALESCE ITU KONSEPNYA OR.
+
+contoh syntax :
+  test=# SELECT COALESCE(null, null, 5, 2);
+  coalesce
+  ----------
+          5
+  (1 row)
+
+  test=# SELECT COALESCE(null, null, 1, 2);
+  coalesce
+  ----------
+          1
+  (1 row)
+
+
+  test=# SELECT COALESCE(last_name, 'Has no last name') FROM person;
