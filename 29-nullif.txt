@@ -1,0 +1,73 @@
+NULLIF harus diisi dengan 2 dua argumen wajib
+  NULLIF(arg1, arg2);
+
+  kedua argumen tersebut akan dibandingkan.
+  1. Jika kedua argumen tidak sama, maka akan mereturn argumen1.
+  contoh syntax :
+    test=# SELECT NULLIF(10, NULL);
+    nullif
+    --------
+        10
+    (1 row)
+
+    test=# SELECT NULLIF(10, 11);
+    nullif
+    --------
+        10
+    (1 row)
+
+    termasuk jika argumen pertama null tapi tapi berbeda dengan argumen ke dua 
+    maka mengembalikan argumen pertama yaitu null
+
+    test=# SELECT NULLIF(NULL, 10);
+    nullif
+    --------
+
+    (1 row)
+
+  2. Jika kedua argumen sama, maka akan mereturn NULL.
+    test=# SELECT NULLIF(10, 10);
+    nullif
+    --------
+
+    (1 row)
+
+NULLIF ini berfungsi sebagai error handling cuy ...
+Contoh :
+  pada saat kita ingin melakukan pembagian 10 / 0
+  maka db akan mengembalikan error :
+    test=# SELECT 10 / 0;
+    ERROR:  division by zero
+    test=#
+
+  nah si error ini dianggap true karena pada saat penggunaan COALESCE
+  jika 10 / 0 dimasukkan sebagai argumen pertama makan error akan muncul :
+    test=# SELECT COALESCE(10 / 0, 10);
+    ERROR:  division by zero
+  
+  padahal kan kita pengennya ngehasilin 10, da 10 / 0 mah pasti error,
+  nah kita malah nganggep error itu bakal false alias dilewat sama si COALESCE 
+  nya padahal si COALESCE malah tetep ngejalanin 10 / 0 yang mana ngembaliin error.
+
+  nah supaya error ini bisa ditangani, maka kita gunakan NULLIF :
+    test=# SELECT COALESCE(10 / NULLIF(0,0), 100);
+    coalesce
+    ----------
+          100
+    (1 row)
+
+  Nah dari kode yang tepat di atas NULLIF bakal ngembaliin NULL karena 2 argumennya sama, yaitu
+  sama sama 0. si COALESCE bakal ngecek dulu argumen pertama yang mana artinya menjadi 10 / NULL 
+  (INGAT NULL HASIL DARI NULLIF). nah 10 / NULL itu hasilnya NULL. 
+    test=# SELECT 10 / NULL;
+    ?column?
+    ----------
+
+    (1 row)
+
+  karena argumen pertama NULL, maka si COALESCE bakal ngeskip argumen pertama itu dan bakal
+  terus nyari argumen lain yang nilainya true, yang mana dari contoh diatas argumen kedua COALESCE
+  adalah 100 yang mana itu bernilai true, maka si COALESCE return 100;
+
+
+PUAS HAH? JHAHAHAHAHA .... 
