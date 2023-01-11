@@ -1,0 +1,6 @@
+milih data bedasarkan range :
+
+bisa pake DATE?
+  intinya kita bisa nulist tipe data sebelum valuenya di syntax.
+syntax :
+  test=# SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2022-10-20' AND DATE '2022-11-01';
