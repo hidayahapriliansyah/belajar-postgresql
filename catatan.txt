@@ -1,0 +1,8 @@
+manfaat belajar ini yang dirasain:
+  1. Dikit dikit paham konsep SQL Database.
+    Yang mana tadinya cuman kenal MySQL yang nyangkanya
+    cuma itu doang yang konsep syntaxnya gitu. Ternyata 
+    MySQL juga ngikutin standar SQL.
+  2. Karena syntaxnya mirip, jadi bisa lintas DBMS.
+    Misal tadinya aplikasi pake MySQL, terus pakai postgres jadi
+    mudah karena syntaxnya sama.
