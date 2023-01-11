@@ -1,0 +1,18 @@
+buat update record nambahin strin gitu lah.
+Sumber : https://stackoverflow.com/questions/3765631/how-can-i-append-a-string-to-an-existing-field-in-mysql
+
+contoh:
+data awal 
+  id   code
+------------
+1    apple_1 
+1    apple_2
+
+ingin jadi 
+id   code
+----------------------
+1    apple_1_standard 
+1    apple_2_standard
+
+maka syntaxnya 
+UPDATE categories SET code = CONCAT(code, '_standard') WHERE id = 1;

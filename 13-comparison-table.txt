@@ -1,0 +1,8 @@
+perbandingan kayak
+=
+<>
+<=
+>=
+BETWEEN juga
+
+ini sama kayak sql biasa lah ...
