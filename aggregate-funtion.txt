@@ -1,0 +1,4 @@
+sumber : https://www.postgresql.org/docs/9.5/functions-aggregate.html
+
+Aggregate functions compute a single result from a set of input values. The built-in normal aggregate functions are listed in Table 9-49 and Table 9-50. The built-in ordered-set aggregate functions are listed in Table 9-51 and Table 9-52. Grouping operations, which are closely related to aggregate functions, are listed in Table 9-53. The special syntax considerations for aggregate functions are explained in Section 4.2.7. Consult Section 2.7 for additional introductory information.
+
