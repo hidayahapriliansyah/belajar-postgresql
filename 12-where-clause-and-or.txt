@@ -1,0 +1,4 @@
+masih kayak SQL biasa ...
+
+contoh syntax :
+  SELECT * FROM person WHERE gender = 'Male' AND (country_of_birth = 'Indonesia' OR country_of_birth = 'Malaysia');
