@@ -1,0 +1,16 @@
+contoh syntax :
+  test=# SELECT make, model, MAX(price) FROM car GROUP BY model, make ORDER BY make LIMIT 5;
+
+MIN, MAX, AVG itu termasuk aggregate function ....
+
+contoh syntax lagi :
+  SELECT make, model, ROUND(AVG(price)) FROM car GROUP BY model, make ORDER BY make LIMIT 5;
+
+Oh iya, kayaknya kalau pakai GROUP BY maka si column yang dipilih harus
+dimasukkan sebagai parameter GROUP BY, atau colomn merupakan dimasukkan ke aggregate function ...
+
+tuh ...
+soalnya kalau gak dimasukkin ke group by muncul error
+SELECT make, model, ROUND(AVG(price)) FROM car GROUP BY model ORDER BY make LIMIT 5;
+ERROR:  column "car.make" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT make, model, ROUND(AVG(price)) FROM car GROUP BY mode...
