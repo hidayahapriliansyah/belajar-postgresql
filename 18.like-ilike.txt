@@ -1,0 +1,24 @@
+LIKE sama lah yang pake % itu;
+'%yangdicari'
+
+% nandain character
+kalau '%yangdicari' berarti yang dicari di belakang record
+kalau 'yangdicari%' berarti yang dicari di depan record
+kalau '%yangdicari%' berarti yang dicari di dalam record
+
+syntax :
+  test=# SELECT * FROM person WHERE email LIKE '%google%';
+
+terus ada _ nih.
+ini baru tahu. banyak _ nandai berapa banyak karakter yang dari record
+yang harus cocok sama yang dicarinya.
+
+contoh syntax :
+  test=# SELECT * FROM person WHERE email LIKE '__________%@google%';
+
+ILIKE berfungsi untuk mematikan case sensitive pada query yang dicari.
+Contoh :
+  SELECT * FROM person WHERE country_of_birth LIKE 'P%';
+  hasilnya akan sama dengan
+  SELECT * FROM person WHERE country_of_birth ILIKE 'p%';
+
