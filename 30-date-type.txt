@@ -1,0 +1,12 @@
+dokumentasi : https://www.postgresql.org/docs/current/datatype.html
+
+contoh syntax :
+    test=# SELECT NOW()::TIME, NOW()::DATE, NOW()::TIMESTAMPTZ, NOW()::TIMETZ;
+          now       |    now     |              now              |        now
+    -----------------+------------+-------------------------------+--------------------
+    21:05:24.473923 | 2023-01-11 | 2023-01-11 21:05:24.473923+07 | 21:05:24.473923+07
+    (1 row)
+
+intinya harus bisa make type data waktu;
+ada time doang, date doang, timestamp, terus yang pake timezone ...
+beuuh ..
