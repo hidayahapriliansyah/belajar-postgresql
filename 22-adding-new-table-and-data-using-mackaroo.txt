@@ -1,0 +1,10 @@
+kita bikin dummy data dulu pake mackaroo dengan struktur :
+  create table car (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    make VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    price NUMERIC(19, 2) NOT NULL
+  );
+
+masukin 1000 data.
+
