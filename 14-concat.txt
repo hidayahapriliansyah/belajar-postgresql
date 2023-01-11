@@ -16,3 +16,7 @@ id   code
 
 maka syntaxnya 
 UPDATE categories SET code = CONCAT(code, '_standard') WHERE id = 1;
+
+CONCAT juga bisa buat nampilin data coy, kayak mau nampilin full_name 
+hasil gabungan dari first_name dan last_name :
+    SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM person LIMIT 10;
