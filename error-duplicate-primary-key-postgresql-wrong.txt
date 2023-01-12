@@ -1,0 +1,35 @@
+Error ini terjadi ketika saya INSERT data yang udah bener tapi malah muncul error kayak gini :
+    ERROR:  duplicate key value violates unique constraint "person_pkey"
+    DETAIL:  Key (id)=(8) already exists.
+
+naah... solusinya nemu di sini :
+    https://stackoverflow.com/questions/4448340/postgresql-duplicate-key-violates-unique-constraint
+
+Yang jadi masalah adalah terjadi pebedaan sequence yang mana
+column id dengan BIGSERIAL yang AUTO INCREMENT yanga padahal 
+datanya udah masuk 1000, dan id nya juga udah bener 1000, yang mana
+kalau INSERT lagi harusnya idnya jadi 1001 ini malah kayak kereset
+jadi 1.
+
+Hal ini terjadi kalau dari stackoverflow itu mah katanya bisa dikarenakan
+karena mass INSERT, dan ini bener.
+
+solusina nyaa ...
+cek dulu sekarang ada di sequence berapa.
+misal nama tablenya Foo dan column yang bermasalah Foo_id
+
+SELECT CURRVAL(PG_GET_SERIAL_SEQUENCE('"Foo"', 'Foo_id')) AS "Current Value", MAX("Foo_id") AS "Max Value" FROM "Foo";
+
+kalau nilai max valuenya lebih besar dari current value, berarti si sequence
+harus dilebih gedein dengan max value alias besar id terbesar terakhir dari data yang di INSERT
+biar auto INCREMENT nya gak ngaco.
+
+cara ngubah sequence nya gini ...
+
+SELECT SETVAL((SELECT PG_GET_SERIAL_SEQUENCE('"Foo"', 'Foo_id')), (SELECT (MAX("Foo_id") + 1) FROM "Foo"), FALSE);
+
+setelah itu coba lagi INSERT
+
+BERHASIL DIIII ... :CRYING
+
+
