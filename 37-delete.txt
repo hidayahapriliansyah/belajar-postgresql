@@ -1,0 +1,7 @@
+intina kalau mau DELETE harus bener bener WHERE na.
+
+lamun tanpa WHERE nya sa table leungit datana.
+
+DELETE FROM person WHERE id = 1;
+
+ulah DELETE FROM person; doang. mampuss
