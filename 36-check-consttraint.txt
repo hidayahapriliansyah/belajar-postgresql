@@ -13,3 +13,7 @@ bedanya karena ini CONSTRAINT maka keliatan CONSTRAINT nya pas describe table
         "mahasiswa_pkey" PRIMARY KEY, btree (id)
     Check constraints:
         "gender_constraint" CHECK (gender::text = 'Pria'::text OR gender::text = 'Wanita'::text)
+
+contoh syntax lain :
+    test=# ALTER TABLE person
+    test-# ADD CONSTRAINT gender_check_constraint CHECK (gender IN ('Male', 'Female'));
