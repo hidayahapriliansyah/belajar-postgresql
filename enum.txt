@@ -1,0 +1,32 @@
+Cara bikin enum :
+    test=# CREATE TYPE gender AS ENUM('M','F');
+    CREATE TYPE 
+
+cara cek daftar type yang udah dibuat :
+    test=# \dT
+          List of data types
+    Schema |  Name  | Description
+    --------+--------+-------------
+    public | gender |
+    (1 row)
+
+cara hapus data type yang udah dibuat :
+    test=# DROP TYPE gender;
+    DROP TYPE
+    test=# \dT
+        List of data types
+    Schema | Name | Description
+    --------+------+-------------
+    (0 rows)
+
+hasil dari pembuatan table mahasiswa dengan type gender maka akan tertuliskan type gender bukan enum
+    test=# \d mahasiswa;
+                                      Table "public.mahasiswa"
+    Column |         Type          | Collation | Nullable |                Default
+    --------+-----------------------+-----------+----------+---------------------------------------
+    id     | bigint                |           | not null | nextval('mahasiswa_id_seq'::regclass)
+    name   | character varying(20) |           | not null |
+    gender | gender                |           | not null |
+    Indexes:
+      "mahasiswa_pkey" PRIMARY KEY, btree (id)
+
