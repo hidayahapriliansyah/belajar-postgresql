@@ -1,0 +1,15 @@
+ini mirip enum tapi dengan cara yang beda ...
+bedanya karena ini CONSTRAINT maka keliatan CONSTRAINT nya pas describe table 
+    test=# ALTER TABLE mahasiswa ADD CONSTRAINT gender_constraint CHECK (gender = 'Pria' OR gender = 'Wanita');
+    ALTER TABLE
+    test=# \d mahasiswa;
+                                      Table "public.mahasiswa"
+    Column |         Type          | Collation | Nullable |                Default
+    --------+-----------------------+-----------+----------+---------------------------------------
+    id     | bigint                |           | not null | nextval('mahasiswa_id_seq'::regclass)
+    nama   | character varying(50) |           | not null |
+    gender | character varying(7)  |           | not null |
+    Indexes:
+        "mahasiswa_pkey" PRIMARY KEY, btree (id)
+    Check constraints:
+        "gender_constraint" CHECK (gender::text = 'Pria'::text OR gender::text = 'Wanita'::text)
