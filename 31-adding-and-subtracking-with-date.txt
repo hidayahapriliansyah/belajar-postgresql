@@ -1,0 +1,46 @@
+lumayan lieru ....
+
+dokumentasi : https://www.postgresql.org/docs/current/functions-datetime.html
+
+contoh syntax:
+    test=# SELECT (NOW() + INTERVAL '10 YEARS')::TIMETZ;
+          timetz
+    --------------------
+    09:16:40.695844+07
+    (1 row)
+
+    test=# SELECT (NOW() - INTERVAL '1 MONTH')::TIMESTAMPTZ;
+          timestamptz
+    -------------------------------
+    2022-12-12 09:19:18.863733+07
+    (1 row)
+
+
+    test=# SELECT (NOW() - INTERVAL '1 WEEK')::TIMESTAMPTZ;
+          timestamptz
+    -------------------------------
+    2023-01-05 09:19:25.143815+07
+    (1 row)
+
+
+    test=# SELECT (NOW() - INTERVAL '1 DAY')::TIMESTAMPTZ;
+          timestamptz
+    ------------------------------
+    2023-01-11 09:19:29.69581+07
+    (1 row)
+
+
+    test=# SELECT (NOW() - INTERVAL '1 HOUR')::TIMESTAMPTZ;
+          timestamptz
+    -------------------------------
+    2023-01-12 08:19:37.383857+07
+    (1 row)
+
+Intervalnya bisa di spesifikasikan :
+    test=# SELECT (NOW() - INTERVAL '4 YEARS 1 MONTH 1 HOUR')::TIMESTAMPTZ;
+              timestamptz
+    -------------------------------
+    2018-12-12 08:21:15.727696+07
+    (1 row)
+
+    
