@@ -1,0 +1,24 @@
+paham ieu mah.
+
+DELETE PRIMARY KEY : 
+  test=# ALTER TABLE category_test
+  test-# DROP CONSTRAINT category_test_pkey;
+  test=# \d category_test;
+                                    Table "public.category_test"
+  Column |         Type          | Collation | Nullable |                  Default
+  --------+-----------------------+-----------+----------+-------------------------------------------
+  id     | bigint                |           | not null | nextval('category_test_id_seq'::regclass)
+  name   | character varying(20) |           | not null |
+
+add primary key : 
+  test=# ALTER TABLE category_test
+  test-# ADD PRIMARY KEY (id);
+  ALTER TABLE
+  test=# \d category_test;
+                                    Table "public.category_test"
+  Column |         Type          | Collation | Nullable |                  Default
+  --------+-----------------------+-----------+----------+-------------------------------------------
+  id     | bigint                |           | not null | nextval('category_test_id_seq'::regclass)
+  name   | character varying(20) |           | not null |
+  Indexes:
+      "category_test_pkey" PRIMARY KEY, btree (id)
