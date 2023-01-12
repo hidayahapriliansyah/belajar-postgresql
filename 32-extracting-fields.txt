@@ -1,0 +1,60 @@
+dokumentasi : https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT
+
+EXTRACT buat ngambil data hari, bulan, day of week, dari sebuah tipe data date.
+
+contoh syntax :
+    test=# SELECT EXTRACT(DAY FROM NOW());
+    extract
+    ---------
+          12
+    (1 row)
+
+
+    test=# SELECT EXTRACT(DOW FROM NOW());
+    extract
+    ---------
+          4
+    (1 row)
+
+
+    test=# SELECT EXTRACT(MONTH FROM NOW());
+    extract
+    ---------
+          1
+    (1 row)
+
+
+    test=# SELECT EXTRACT(YEAR FROM NOW());
+    extract
+    ---------
+        2023
+    (1 row)
+
+
+    test=# SELECT EXTRACT(CENTURY FROM NOW());
+    extract
+    ---------
+          21
+    (1 row)
+
+
+
+    test=# SELECT EXTRACT(DOW FROM DATE '2018-12-2');
+    extract
+    ---------
+          0
+    (1 row)
+
+    test=# SELECT EXTRACT(HOUR FROM NOW());
+    extract
+    ---------
+          9
+    (1 row)
+
+    test=# SELECT TO_TIMESTAMP(EXTRACT(EPOCH FROM DATE '2018-12-2'));
+          to_timestamp
+    ------------------------
+    2018-12-02 07:00:00+07
+    (1 row)
+
+Yeah intinya buat ngambil data waktu yang spesifik kayak hari, bulan, tanggal, abad
