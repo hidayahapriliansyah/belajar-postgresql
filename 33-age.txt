@@ -1,0 +1,8 @@
+age akan menghasilkan data seperti ini :
+    1 year 1 day 10:12:11.583544
+    
+age punya 2 parameter
+  contoh syntax: 
+    test=# SELECT id, first_name, last_name, AGE(NOW(), date_of_birth) FROM person;
+
+parameter pertama akan dikurangi oleh parameter kedua.
