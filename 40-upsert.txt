@@ -1,0 +1,36 @@
+Selain DO NOTHING saat error ketika melanggar unique key,
+alih alih error atau DO NOTHING kita bisa mengambil nilai
+inputan yang valid dan meng UPDATE data terkait menggunakan data
+yang di INSERT.
+
+contoh syntax :
+    test=# INSERT INTO person (first_name, last_name, date_of_birth, country_of_birth, gender, email) VALUES
+    test-# ('Adi Muhamad', 'Firmansyah', DATE '2001-04-27', 'Indonesia', 'Male', 'hidayahapriliansyah@gmail.com');
+    ERROR:  duplicate key value violates unique constraint "person_email_key"
+    DETAIL:  Key (email)=(hidayahapriliansyah@gmail.com) already exists.
+
+    kan error nya karena sudah ada record dengan email yang mau di INSERT tersebut...
+
+    test=# SELECT * from person WHERE email = 'hidayahapriliansyah@gmail.com';
+    id  | first_name |      last_name       | date_of_birth | country_of_birth | gender |             email
+    -----+------------+----------------------+---------------+------------------+--------+-------------------------------
+    104 | Adi        | Hidayah Apriliansyah | 2001-04-25    | Indonesia        | Male   | hidayahapriliansyah@gmail.com
+    (1 row)
+
+    nah kita ON CONFLICT si email, kita update aja data yang udah ke record itu 
+    menggunakan data yang di INSERT itu :
+
+    test=# INSERT INTO person (first_name, last_name, date_of_birth, country_of_birth, gender, email) VALUES
+    test-# ('Adi Muhamad', 'Firmansyah', DATE '2001-04-27', 'Indonesia', 'Male', 'hidayahapriliansyah@gmail.com')
+    test-# ON CONFLICT (email) DO UPDATE SET first_name = EXCLUDED.first_name, last_name = EXCLUDED.last_name,
+    test-# date_of_birth = EXCLUDED.date_of_birth, gender = EXCLUDED.gender;
+    INSERT 0 1
+
+    akhirnya si data yang emailnya hidayahapriliansyah@gmail.com datanya di update deh ...
+
+    test=# SELECT * FROM person WHERE email = 'hidayahapriliansyah@gmail.com';
+    id  | first_name  | last_name  | date_of_birth | country_of_birth | gender |             email
+    -----+-------------+------------+---------------+------------------+--------+-------------------------------
+    104 | Adi Muhamad | Firmansyah | 2001-04-27    | Indonesia        | Male   | hidayahapriliansyah@gmail.com
+    (1 row)
+
