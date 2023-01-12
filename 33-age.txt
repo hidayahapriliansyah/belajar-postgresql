@@ -1,8 +1,28 @@
 age akan menghasilkan data seperti ini :
     1 year 1 day 10:12:11.583544
-    
+
 age punya 2 parameter
   contoh syntax: 
     test=# SELECT id, first_name, last_name, AGE(NOW(), date_of_birth) FROM person;
+
+manttaappp 
+    SELECT id,
+    CONCAT(first_name, ' ', last_name) AS full_name,
+    date_of_birth,
+    CONCAT(EXTRACT(YEAR FROM AGE(NOW(),date_of_birth)), ' ', 'y.o.') AS age
+    FROM person;
+
+      id  |       full_name        | date_of_birth |   age
+------+------------------------+---------------+---------
+    1 | Zelda Bardwell         | 2007-05-24    | 15 y.o.
+    2 | Nico                   | 2002-05-03    | 20 y.o.
+    3 | Zora Danigel           | 1983-01-13    | 39 y.o.
+    4 | Mahmud Kalisch         | 1992-06-08    | 30 y.o.
+    5 | Lela                   | 1994-12-08    | 28 y.o.
+    6 | Kin Franciottoi        | 1992-05-22    | 30 y.o.
+    7 | Elysia Byres           | 1992-12-10    | 30 y.o.
+    8 | Melony Wildbore        | 1999-04-15    | 23 y.o.
+    9 | Louisa Dodge           | 2006-11-07    | 16 y.o.
+   10 | Dorine Ruckman         | 1987-07-26    | 35 y.o.
 
 parameter pertama akan dikurangi oleh parameter kedua.
