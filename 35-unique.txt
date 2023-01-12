@@ -1,0 +1,43 @@
+cara tambah unique key :
+  1. dengan ADD CONSTRAINT
+
+  test=# ALTER TABLE person ADD CONSTRAINT unique_email UNIQUE (email);
+  ALTER TABLE
+
+  test=# \d person
+                                          Table "public.person"
+        Column      |         Type          | Collation | Nullable |              Default
+  ------------------+-----------------------+-----------+----------+------------------------------------
+  id               | bigint                |           | not null | nextval('person_id_seq'::regclass)
+  first_name       | character varying(50) |           | not null |
+  last_name        | character varying(50) |           |          |
+  date_of_birth    | date                  |           | not null |
+  country_of_birth | character varying(50) |           | not null |
+  gender           | character varying(50) |           | not null |
+  email            | character varying(50) |           |          |
+  Indexes:
+      "person_pkey" PRIMARY KEY, btree (id)
+      "unique_email" UNIQUE CONSTRAINT, btree (email)
+
+  2. dengan ADD UNIQUE :
+
+    test=# ALTER TABLE person ADD UNIQUE (email);
+    ALTER TABLE
+    test=# \d person
+                                          Table "public.person"
+        Column      |         Type          | Collation | Nullable |              Default
+    ------------------+-----------------------+-----------+----------+------------------------------------
+    id               | bigint                |           | not null | nextval('person_id_seq'::regclass)
+    first_name       | character varying(50) |           | not null |
+    last_name        | character varying(50) |           |          |
+    date_of_birth    | date                  |           | not null |
+    country_of_birth | character varying(50) |           | not null |
+    gender           | character varying(50) |           | not null |
+    email            | character varying(50) |           |          |
+    Indexes:
+      "person_pkey" PRIMARY KEY, btree (id)
+      "person_email_key" UNIQUE CONSTRAINT, btree (email)
+
+
+cara hapus UNIQUE KEY: 
+  ALTER TABLE person DROP CONSTRAINT unique_email;
