@@ -34,3 +34,11 @@ contoh syntax :
     104 | Adi Muhamad | Firmansyah | 2001-04-27    | Indonesia        | Male   | hidayahapriliansyah@gmail.com
     (1 row)
 
+jadi kesimpulannya
+
+bisa INSERT kalau datanya gak ada yang unique,
+tapi kalau ternyata ada yang unique nyangkut
+kita bisa UPDATE data tersebut ...
+
+atau ini sebenernya tujuannya buat UPDATE ya?
+kalau ada UPDATE kalau datanya belum ada ya INSERT?
