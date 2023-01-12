@@ -1,0 +1,7 @@
+UPDATE juga sama kayak DELETE.
+hati hati harus bener WHERE nya coy ...
+
+oh iya update juga bisa nge set multiple column nya 
+
+contoh syntax :
+     UPDATE person SET first_name 'Adi', last_name = 'Hidayah Apriliansyah', email = 'hidayahapriliansyah@gmail.com' WHERE id = 104;
