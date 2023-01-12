@@ -1,0 +1,15 @@
+KALAU mau pake ON CONFLICT pastikan column nya punya CONSTRAINT entah itu
+unique, atau primary key, check constraint atau apalah yang punya aturan yang mana kalau dilanggar
+bisa ngelempar error.
+
+ternyta kalau ON CONFLICT diarahin ke column check constrait gak jalan yaaa....
+
+contoh syntax :
+    test=# INSERT INTO mahasiswa (id, nama, gender) VALUES
+    test-# (4, 'Testing', 'Wanita')
+    test-# ON CONFLICT (id) DO NOTHING;
+    INSERT 0 0
+
+masukkan nama column unique sebagai argument ON CONFLICT.
+
+
