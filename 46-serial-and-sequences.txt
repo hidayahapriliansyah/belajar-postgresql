@@ -1,0 +1,71 @@
+serial itu int
+bigserial itu bigint
+
+cuma bedanya kalau serial dia pake sequence (urutan)
+yang mana gak perlu diinsert nanti angkanya ngisi sendiri berurutan.
+Kok bisa berurutan? 
+
+Kalau kita describe table person kita bisa lihat column id
+yang sebelumnya kita kasih type data BIGSERIAL di bagian
+defaultnya ada function nextval('person_id_seq'::regclass)
+
+    test=# \d person
+                                            Table "public.person"
+          Column      |          Type          | Collation | Nullable |              Default
+    ------------------+------------------------+-----------+----------+------------------------------------
+    id               | bigint                 |           | not null | nextval('person_id_seq'::regclass)
+
+    function inilah yang bikin ngisi dan ngurut sendiri. 
+
+kita coba cek pakai SELECT.
+
+    test=# SELECT nextval('person_id_seq'::regclass);
+    nextval
+    ---------
+          24
+    (1 row)
+
+    test=# SELECT nextval('person_id_seq'::regclass);
+    nextval
+    ---------
+          25
+    (1 row)
+
+ketika si function nextval dijalankan maka dia bakal terus nambahin
+sequence dari argumen function tersebut.
+
+argumen yang jadi parameternya apa? ternyat itu table loh.
+soalna bisa diginiin
+
+    test=# SELECT * FROM person_id_seq;
+    last_value | log_cnt | is_called
+    ------------+---------+-----------
+            25 |      31 | t
+    (1 row)
+
+keliatan last_value nya. yang mana kalau misal last_value nya 25,
+dijadiin argumen ke nextval() maka si nextval bakal return 26
+(setelah 25 tea panan. Nextval).
+
+terus si person_id_seq bisa di describe loh
+
+    test=# \d person_id_seq
+                          Sequence "public.person_id_seq"
+      Type  | Start | Minimum |       Maximum       | Increment | Cycles? | Cache
+    --------+-------+---------+---------------------+-----------+---------+-------
+    bigint |     1 |       1 | 9223372036854775807 |         1 | no      |     1
+    Owned by: public.person.id
+
+CARA RESET Sequence
+
+    test=# ALTER SEQUENCE person_id_seq RESTART WITH 4;
+
+    ALTER SEQUENCE
+    test=# SELECT * FROM person_id_seq;
+    last_value | log_cnt | is_called
+    ------------+---------+-----------
+            4 |       0 | f
+    (1 row)
+
+tutor ini gege banget aslina .... 
+
