@@ -1,0 +1,45 @@
+cara install extension :
+    test=# CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+    CREATE EXTENSION
+    test=#
+
+    harus pakai double ketip.
+
+nah setelah kita nginstall extension ...
+kita bakal nemu bakal punya list function dari extentions tersebut.
+cara cek list functionna bisa lihat di \? alias help
+nanti bakal nemu \df. coba jalanin \df
+
+    test=# \df
+                                    List of functions
+    Schema |        Name        | Result data type |    Argument data types    | Type
+    --------+--------------------+------------------+---------------------------+------
+    public | uuid_generate_v1   | uuid             |                           | func
+    public | uuid_generate_v1mc | uuid             |                           | func
+    public | uuid_generate_v3   | uuid             | namespace uuid, name text | func
+    public | uuid_generate_v4   | uuid             |                           | func
+    public | uuid_generate_v5   | uuid             | namespace uuid, name text | func
+    public | uuid_nil           | uuid             |                           | func
+    public | uuid_ns_dns        | uuid             |                           | func
+    public | uuid_ns_oid        | uuid             |                           | func
+    public | uuid_ns_url        | uuid             |                           | func
+    public | uuid_ns_x500       | uuid             |                           | func
+    (10 rows)
+
+terus coba deh jalanin (invoke) functionnya pake SELECT.
+
+    test=# SELECT uuid_generate_v4();
+              uuid_generate_v4
+    --------------------------------------
+    7a2c35df-7a8a-477c-8054-d5a9f251c587
+    (1 row)
+
+nah itu ngegenerate unique id yang bener bener unique. 
+sumber bacaannya bisa cek di sini :
+    https://en.wikipedia.org/wiki/Universally_unique_identifier
+
+karena ke unique an ini kita bisa kita gunakan untuk primary key,
+dan karena ke rumitan unique nya id ini juga aman jika ingin ada yang 
+mem brute force nya. Keuntungan lainnya, karena ini global unique
+kita bisa dengan aman dari bentrokan jika ingin migrate database karena 
+gak mungkin ada id yang sama.
