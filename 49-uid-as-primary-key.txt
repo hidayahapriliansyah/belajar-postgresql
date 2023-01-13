@@ -1,0 +1,6 @@
+UID terdaftar sebagai type data di sini : https://www.postgresql.org/docs/current/datatype.html
+
+kita ganti tipe data id dari person dan car dari asalnya BIGSERIAL jadi UUID.
+
+Untuk melihat hasilnya silakan lihat dan bandingkan file 
+person-car-2.sql yang awalnya BIGSERIAL dan file person-car-4.sql yang menjadi UUID
