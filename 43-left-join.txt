@@ -20,3 +20,14 @@ test=# SELECT * FROM person RIGHT JOIN car ON car.id = person.car_id;
     |            |           |        |                            |               |                  |        |  3 | Suzuki     | Ertiga   | 12001.05
 
 geus bener konsep na kitu ...
+
+nah kalau full join mah, nya irisan ongkoh, nya nu di kiri kanan ongkoh. 
+
+test=# SELECT * FROM person FULL JOIN car ON person.car_id = car.id;
+ id | first_name | last_name | gender |           email            | date_of_birth | country_of_birth | car_id | id |    make    |  model   |  price
+----+------------+-----------+--------+----------------------------+---------------+------------------+--------+----+------------+----------+----------
+  3 | Adriana    | Matuschek | Female | amatuschek2@feedburner.com | 1965-02-28    | Cameroon         |      1 |  1 | Land Rover | Sterling | 87665.38
+  1 | Fernanda   | Beardon   | Female | fernandab@is.gd            | 1953-10-28    | Comoros          |      2 |  2 | GMC        | Acadia   | 17662.69
+    |            |           |        |                            |               |                  |        |  3 | Suzuki     | Ertiga   | 12001.05
+  2 | Omar       | Colmore   | Male   |                            | 1921-04-03    | Finland          |        |    |            |          |
+(4 rows)
