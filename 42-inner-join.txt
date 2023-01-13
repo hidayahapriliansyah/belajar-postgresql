@@ -1,0 +1,13 @@
+ngegabungin record yang dari 2 atau lebih table yang memiliki irisan realtion
+pada setiap table pasangannya.
+
+bisa JOIN doang karena itu defaultnya INNER JOIN,
+mau nulis INNER JOIN manga hasilnya sama.
+
+test=# SELECT * FROM person JOIN car ON car.id = person.car_id;
+ id | first_name | last_name | gender |           email            | date_of_birth | country_of_birth | car_id | id |    make    |  model   |  price
+----+------------+-----------+--------+----------------------------+---------------+------------------+--------+----+------------+----------+----------
+  3 | Adriana    | Matuschek | Female | amatuschek2@feedburner.com | 1965-02-28    | Cameroon         |      1 |  1 | Land Rover | Sterling | 87665.38
+  1 | Fernanda   | Beardon   | Female | fernandab@is.gd            | 1953-10-28    | Comoros          |      2 |  2 | GMC        | Acadia   | 17662.69
+(2 rows)
+
