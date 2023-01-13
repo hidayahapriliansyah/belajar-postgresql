@@ -11,3 +11,11 @@ test=# SELECT * FROM person JOIN car ON car.id = person.car_id;
   1 | Fernanda   | Beardon   | Female | fernandab@is.gd            | 1953-10-28    | Comoros          |      2 |  2 | GMC        | Acadia   | 17662.69
 (2 rows)
 
+tips :
+
+jika key antara table yang dijadikan join memiliki nama yang sama.
+Misalkan table person memiliki key car_id, dan table car memiliki key
+car_id, dari pada menuliskan person.car_id = car.car_id, kita bisa menggunakan
+USING. contoh :
+
+SELECT * FROM person LEFT JOIN car USING (car_uid) WHERE car.* IS NULL;
