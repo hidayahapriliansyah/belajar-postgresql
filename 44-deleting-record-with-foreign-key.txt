@@ -1,0 +1,26 @@
+Lebih ke nekenin harus hati hati kalau maen update delete di 
+table yang menjadi induk foreign key dari table lain.
+
+karena pada saat nge delete record dari table induk
+yang mana record tersebut sudah dijadikan foreign key di
+table lain maka akan gagal untuk delete, atau update.
+
+EH KETANG, nga update jalan jalan wae ...
+da sigana primary key nu jadi foreign key na 
+teu robah nya jadi data na mah tetep ka deteksi 
+eta eta keneh nu penting identifier alias primary key 
+na nu jadi foreign key tetep sama siga dina table anak na.
+
+kalau nge delete record yang udah jadi foreign key di table lain kayak gini :
+    test=# DELETE FROM car WHERE id = 2;
+    ERROR:  update or delete on table "car" violates foreign key constraint "person_car_id_fkey" on table "person"
+    DETAIL:  Key (id)=(2) is still referenced from table "person".
+
+kalau nge delete record yang belum jadi foreign key mah damang damang aja :
+    test=# DELETE FROM car WHERE id = 3;
+    DELETE 1
+
+sebetulnya kalau gak mau munculin error bisa pake DELETE CASCADE atau UPDATE CASCADE
+tapi kata pak Amigos nu ngajarkeun mah meuning keneh teu da ameh urang bener bener 
+apal naon anu terjadi dengan database urang teh.
+
