@@ -28,6 +28,9 @@ values ('Omar', 'Colmore', 'Male', null, '1921-04-03', 'Finland');
 insert into person (first_name, last_name, gender, email, date_of_birth, country_of_birth) 
 values ('Adriana', 'Matuschek', 'Female', 'amatuschek2@feedburner.com', '1965-02-28', 'Cameroon');
 
+insert into person (first_name, last_name, gender, email, date_of_birth, country_of_birth) 
+values ('Martin', 'Ambararoo', 'Male', 'martinabmaer@feedburner.com', '1965-02-28', 'England');
+
 -- INSERT INTO CAR
 insert into car (make, model, price) values ('Land Rover', 'Sterling', '87665.38');
 insert into car (make, model, price) values ('GMC', 'Acadia', '17662.69');
