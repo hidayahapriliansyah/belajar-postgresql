@@ -1,0 +1,3 @@
+test=# ALTER TABLE mahasiswa
+test-# ADD COLUMN car_id BIGINT REFERENCES car (id);
+ALTER TABLE
