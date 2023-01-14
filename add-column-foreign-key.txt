@@ -1,3 +1,9 @@
 test=# ALTER TABLE mahasiswa
 test-# ADD COLUMN car_id BIGINT REFERENCES car (id);
 ALTER TABLE
+
+nambahin constrain foreign key ke table.
+sama kayak mysql sih ...
+
+latihan=# ALTER TABLE person
+latihan-# ADD CONSTRAINT fk_person_car FOREIGN KEY (car_id) REFERENCES car (id);
